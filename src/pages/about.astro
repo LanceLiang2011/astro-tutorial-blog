@@ -1,4 +1,25 @@
 ---
+const pageTitle = 'About me';
+
+const identity = {
+  firstName: 'Lance',
+  country: 'Canada',
+  occupation: 'Student',
+  hobbies: ['reading', 'game dev'],
+};
+const skills = [
+  'HTML',
+  'CSS',
+  'React',
+  'Astro',
+  'TypeScript',
+  'Python',
+  'Tidyverse(R)',
+];
+
+const happy = true;
+const finished = false;
+const goal: number = 1;
 ---
 
 <html lang='en'>
@@ -7,13 +28,13 @@
     <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
     <meta name='viewport' content='width=device-width' />
     <meta name='generator' content={Astro.generator} />
-    <title>Astro</title>
+    <title>{pageTitle}</title>
   </head>
   <body>
     <a href='/'>Home</a>
     <a href='/about/'>About</a>
     <a href='/blog/'>Blog</a>
-    <h1>About me</h1>
+    <h1>{pageTitle}</h1>
     <p>
       I am working through Astro's introductory tutorial. This is the second
       page on my website.
@@ -23,5 +44,33 @@
       This site will update as I complete more of the tutorial, so keep checking
       back and see how my journey is going!
     </p>
+    <p>Here are a few facts about me:</p>
+    <ul>
+      <li>My name is {identity.firstName}.</li>
+      <li>
+        I live in {identity.country} and I am a {identity.occupation}.
+      </li>
+      {
+        identity.hobbies.length >= 2 && (
+          <li>
+            Two of my hobbies are: {identity.hobbies[0]} and{' '}
+            {identity.hobbies[1]}
+          </li>
+        )
+      }
+    </ul>
+    <p>My skills are:</p>
+    <ul>
+      {skills.map((skill) => <li>{skill}</li>)}
+    </ul>
+    {happy && <p>I am happy to learn Astro</p>}
+    {finished && <p>I finished the Astro tutorial! </p>}
+    {
+      goal === 3 ? (
+        <p>I plan to finish this in 3 day</p>
+      ) : (
+        <p>I am not planing to finish this in 3 days</p>
+      )
+    }
   </body>
 </html>
