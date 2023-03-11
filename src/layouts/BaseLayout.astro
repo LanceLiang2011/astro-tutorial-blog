@@ -1,7 +1,7 @@
 ---
-import Footer from '../../components/Footer.astro';
-import Header from '../../components/Header.astro';
-import '../../styles/global.css';
+import '../styles/global.css';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
 
 export interface Props {
   pageTitle: string;
@@ -25,7 +25,7 @@ const { pageTitle } = Astro.props;
     <slot />
     <Footer />
     <script>
-      import '../../scripts/menu.ts';
+      import '../scripts/menu.ts';
     </script>
   </body>
 </html>
